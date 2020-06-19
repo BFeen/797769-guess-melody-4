@@ -8,7 +8,7 @@ const ArtistQuestionScreen = (props) => {
   const {answers, song} = question;
 
   return (
-    <section classNameName="game game--artist">
+    <section className="game game--artist">
       <header className="game__header">
         <a className="game__back" href="#">
           <span className="visually-hidden">Сыграть ещё раз</span>
