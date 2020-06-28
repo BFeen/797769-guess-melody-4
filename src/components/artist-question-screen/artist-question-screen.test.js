@@ -27,6 +27,7 @@ describe(`ArtistQuestionScreen snap-test`, () => {
       <ArtistQuestionScreen
         question={question}
         onAnswer={() => {}}
+        renderPlayer={() => {}}
       />, {
         createNodeMock: () => {
           return {};
