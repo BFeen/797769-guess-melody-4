@@ -1,4 +1,4 @@
-import React, {PureComponent} from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import {GameType} from "../../const.js";
 
@@ -6,7 +6,7 @@ import {GameType} from "../../const.js";
 const ArtistQuestionScreen = (props) => {
   const {onAnswer, question, renderPlayer} = props;
   const {answers, song} = question;
-  
+
   return (
     <section className="game__screen">
       <h2 className="game__title">Кто исполняет эту песню?</h2>
@@ -34,8 +34,7 @@ const ArtistQuestionScreen = (props) => {
       </form>
     </section>
   );
-}
-  
+};
 
 ArtistQuestionScreen.propTypes = {
   onAnswer: PropTypes.func.isRequired,

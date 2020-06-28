@@ -1,6 +1,5 @@
 import React, {PureComponent} from "react";
 import AudioPlayer from "../components/audio-player/audio-player.jsx";
-import { act } from "react-test-renderer";
 
 
 const withActivePlayer = (Component) => {
@@ -10,7 +9,7 @@ const withActivePlayer = (Component) => {
 
       this.state = {
         activePlayerId: 0,
-      }
+      };
     }
 
     render() {

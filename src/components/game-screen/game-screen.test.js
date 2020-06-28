@@ -4,7 +4,7 @@ import GameScreen from "./game-screen.jsx";
 import {GameType} from "../../const.js";
 
 
-const children = <div className="children-component"></div>
+const children = <div className="children-component"></div>;
 
 describe(`GameScreen snapshot test`, () => {
   it(`GameScreen rendering with game type Artist`, () => {

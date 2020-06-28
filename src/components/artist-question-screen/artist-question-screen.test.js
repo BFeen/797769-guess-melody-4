@@ -24,15 +24,16 @@ const question = {
 describe(`ArtistQuestionScreen snap-test`, () => {
   it(`ArtistQuestionScreen render`, () => {
     const tree = renderer.create(
-      <ArtistQuestionScreen
-        question={question}
-        onAnswer={() => {}}
-        renderPlayer={() => {}}
-      />, {
-        createNodeMock: () => {
-          return {};
+        <ArtistQuestionScreen
+          question={question}
+          onAnswer={() => {}}
+          renderPlayer={() => {}}
+        />, {
+          createNodeMock: () => {
+            return {};
+          }
         }
-    }).toJSON();
+    ).toJSON();
 
     expect(tree).toMatchSnapshot();
   });
