@@ -44,7 +44,7 @@ const ActionCreator = {
 
     return {
       type: ActionType.INCREMENT_MISTAKES,
-      payload: answerIsCorrect ?  0 : 1,
+      payload: answerIsCorrect ? 0 : 1,
     };
   },
 };
@@ -68,7 +68,7 @@ const reducer = (state = initialState, action) => {
       if (mistakes >= state.maxMistakes) {
         return extend({}, initialState);
       }
-      
+
       return extend(state, {
         mistakes: state.mistakes + action.payload,
       });

@@ -83,11 +83,11 @@ describe(`Render App`, ()=> {
           </Provider>, {
             createNodeMock: () => {
               return {};
-             }
+            }
           })
       .toJSON();
 
-      expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
   });
 
   it(`ArtistQuestionScreen rendering`, () => {
@@ -112,6 +112,6 @@ describe(`Render App`, ()=> {
           })
       .toJSON();
 
-      expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
   });
 });

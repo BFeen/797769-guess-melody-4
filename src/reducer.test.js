@@ -86,7 +86,7 @@ describe(`Reducer testing`, () => {
       step: -1,
       mistakes: 1,
     });
-  
+
     expect(reducer({
       step: -1,
       mistakes: 0,
