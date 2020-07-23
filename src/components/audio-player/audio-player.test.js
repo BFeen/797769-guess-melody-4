@@ -10,21 +10,23 @@ const mock = {
 };
 
 describe(`AudioPlayer snapshot test`, () => {
-  it(`AudioPlayer rendering`, () => {
+  it(`AudioPlayer is rendered correctly`, () => {
     const {song} = mock;
-
+  
     const tree = renderer.create(
-        <AudioPlayer
-          isPlaying={false}
-          onPlayButtonClick={() => {}}
-          src={song.src}
-        />, {
-          createNodeMock: () => {
-            return {};
-          }
+      <AudioPlayer
+        isPlaying={false}
+        isLoading={true}
+        onPlayButtonClick={() => {}}
+        src={song.src}
+      >
+        <audio />
+      </AudioPlayer>, {
+        createNodeMock: () => {
+          return {};
         }
-    ).toJSON();
-
+    }).toJSON();
+  
     expect(tree).toMatchSnapshot();
   });
 });
