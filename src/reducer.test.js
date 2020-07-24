@@ -125,7 +125,7 @@ describe(`Reducer testing`, () => {
       maxMistakes: 3,
       questions,
     });
-  
+
     expect(reducer({
       step: -1,
       mistakes: 0,

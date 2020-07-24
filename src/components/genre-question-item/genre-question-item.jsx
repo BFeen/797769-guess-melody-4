@@ -27,7 +27,7 @@ class GenreQuestionItem extends PureComponent {
 }
 
 GenreQuestionItem.propTypes = {
-  asnwer: PropTypes.shape({
+  answer: PropTypes.shape({
     src: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
   }).isRequired,

@@ -10,13 +10,13 @@ const answerMock = {
 
 it(`GenreQuestionItem snapshot testing`, () => {
   const tree = renderer.create(
-    <GenreQuestionItem
-      answer={answerMock}
-      id={0}
-      onChange={() => {}}
-      renderPlayer={() => {}}
-      userAnswer={false}
-    />
+      <GenreQuestionItem
+        answer={answerMock}
+        id={0}
+        onChange={() => {}}
+        renderPlayer={() => {}}
+        userAnswer={false}
+      />
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

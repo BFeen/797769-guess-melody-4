@@ -36,10 +36,10 @@ const mock = {
 
 it(`Should change answers`, () => {
   const wrapper = shallow(
-    <MockComponentWrapped
-      question={mock.question}
-      onAnswer={() => {}}
-    />
+      <MockComponentWrapped
+        question={mock.question}
+        onAnswer={() => {}}
+      />
   );
 
   expect(wrapper.props().userAnswers).toEqual([false, false, false, false]);
