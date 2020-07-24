@@ -38,6 +38,8 @@ describe(`GenreQuestionScreen e2e test`, () => {
       onAnswer={onAnswer}
       question={question}
       renderPlayer={() => {}}
+      userAnswers={[false, false, false, false]}
+      onChange={() => {}}
     />);
 
     const form = genreQuestion.find(`form`);
@@ -59,6 +61,8 @@ describe(`GenreQuestionScreen e2e test`, () => {
       onAnswer={onAnswer}
       question={question}
       renderPlayer={() => {}}
+      onChange={() => {}}
+      userAnswers={userAnswer}
     />);
 
     const form = genreQuestion.find(`form`);
@@ -71,6 +75,7 @@ describe(`GenreQuestionScreen e2e test`, () => {
 
     expect(onAnswer.mock.calls[0][0]).toMatchObject(question);
     expect(onAnswer.mock.calls[0][1]).toMatchObject(userAnswer);
+    expect(onAnswer.mock.calls[0][0]).toEqual(void 0);
 
     expect(
         genreQuestion.find(`input`).map((it) => it.prop(`checked`))
