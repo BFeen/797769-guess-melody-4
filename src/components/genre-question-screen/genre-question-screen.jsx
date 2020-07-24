@@ -32,7 +32,7 @@ class GenreQuestionScreen extends PureComponent {
               id={i}
               onChange={onChange}
               renderPlayer={renderPlayer}
-              userAnswers={userAnswers[i]}
+              userAnswer={userAnswers[i]}
             />
           ))}
 

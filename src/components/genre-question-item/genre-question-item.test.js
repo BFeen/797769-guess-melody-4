@@ -3,7 +3,7 @@ import renderer from "react-test-renderer";
 import GenreQuestionItem from "./genre-question-item.jsx";
 
 
-const answer = {
+const answerMock = {
   src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
   genre: `rock`,
 };
@@ -11,7 +11,7 @@ const answer = {
 it(`GenreQuestionItem snapshot testing`, () => {
   const tree = renderer.create(
     <GenreQuestionItem
-      answer={answer}
+      answer={answerMock}
       id={0}
       onChange={() => {}}
       renderPlayer={() => {}}
