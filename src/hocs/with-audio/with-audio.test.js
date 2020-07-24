@@ -25,15 +25,15 @@ const MockComponentWrapped = withAudio(MockComponent);
 
 it(`withAudio snapshot testing`, () => {
   const tree = renderer.create(
-    <MockComponentWrapped
-      isPlaying={false}
-      onPlayButtonClick={() => {}}
-      src={``}
-    />, {
-      createNodeMock() {
-        return {};
+      <MockComponentWrapped
+        isPlaying={false}
+        onPlayButtonClick={() => {}}
+        src={``}
+      />, {
+        createNodeMock() {
+          return {};
+        }
       }
-    }
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

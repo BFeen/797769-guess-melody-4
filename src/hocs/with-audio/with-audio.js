@@ -44,6 +44,16 @@ const withAudio = (Component) => {
     componentDidUpdate() {
       const audio = this._audioRef.current;
 
+      if (this.state.isPlaying) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    }
+
+    componentWillUnmount() {
+      const audio = this._audioRef.current;
+
       audio.oncanplaythrough = null;
       audio.onplay = null;
       audio.onpause = null;
@@ -75,9 +85,9 @@ const withAudio = (Component) => {
     isPlaying: PropTypes.bool.isRequired,
     onPlayButtonClick: PropTypes.func.isRequired,
     src: PropTypes.string.isRequired,
-  }
+  };
 
   return WithAudio;
-}
+};
 
 export default withAudio;
