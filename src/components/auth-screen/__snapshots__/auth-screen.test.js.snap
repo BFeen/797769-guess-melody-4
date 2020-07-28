@@ -34,7 +34,7 @@ exports[`AuthScreen rendering correctly 1`] = `
     >
       <label
         className="login__label"
-        for="name"
+        htmlFor="name"
       >
         Логин
       </label>
@@ -50,7 +50,7 @@ exports[`AuthScreen rendering correctly 1`] = `
     >
       <label
         className="login__label"
-        for="password"
+        htmlFor="password"
       >
         Пароль
       </label>

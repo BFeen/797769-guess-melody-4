@@ -1,4 +1,4 @@
-import React, {PureComponent, createRef} from "react";
+import React, {createRef, PureComponent} from "react";
 import PropTypes from "prop-types";
 
 
@@ -44,7 +44,7 @@ const withAudio = (Component) => {
     componentDidUpdate() {
       const audio = this._audioRef.current;
 
-      if (this.state.isPlaying) {
+      if (this.props.isPlaying) {
         audio.play();
       } else {
         audio.pause();
@@ -75,7 +75,9 @@ const withAudio = (Component) => {
             onPlayButtonClick();
           }}
         >
-          <audio ref={this._audioRef}/>
+          <audio
+            ref={this._audioRef}
+          />
         </Component>
       );
     }

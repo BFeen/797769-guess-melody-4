@@ -11,16 +11,16 @@ const randomFilter = () => {
 };
 
 export const getArtistQuestions = createSelector(
-  getQuestions,
-  randomFilter,
-  (resultOne, resultTwo) => {
-    return resultOne.filter((item) => resultTwo && item.type === `artist`);
-  }
+    getQuestions,
+    randomFilter,
+    (resultOne, resultTwo) => {
+      return resultOne.filter((item) => resultTwo && item.type === `artist`);
+    }
 );
 
 export const getGenreQuestions = createSelector(
-  getQuestions,
-  (questions) => {
-    return questions.filter((item) => item.type === `genre`);
-  }
+    getQuestions,
+    (questions) => {
+      return questions.filter((item) => item.type === `genre`);
+    }
 );

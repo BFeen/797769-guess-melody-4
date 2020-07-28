@@ -89,7 +89,7 @@ describe(`User Operation works correctly`, () => {
     const apiMock = new MockAdapter(api);
     const dispatch = jest.fn();
     const dataMock = {
-      login: `e@mail.com` ,
+      email: `e@mail.com`,
       password: `1234`,
     };
     const loginer = Operation.login(dataMock);
@@ -97,16 +97,16 @@ describe(`User Operation works correctly`, () => {
     apiMock
       .onPost(`/login`)
       .reply(200, [{
-        email: `e@mail.com`,
-        password: `1234`,
+        email: dataMock.email,
+        id: `1`,
       }]);
 
-    return loginer(dispatch, () => {}, api) 
+    return loginer(dispatch, () => {}, api)
       .then(() => {
         expect(dispatch).toHaveBeenCalledTimes(1);
         expect(dispatch).toHaveBeenNthCalledWith(1, {
           type: ActionType.REQUIRED_AUTHORIZATION,
-          payload: [dataMock],
+          payload: AuthorizationStatus.AUTH,
         });
       });
   });

@@ -7,7 +7,7 @@ const Error = {
 
 export const createAPI = (onUnauthorized) => {
   const api = axios.create({
-    baseURL: `https://4.react.pages.academy/guess_melody`,
+    baseURL: `https://4.react.pages.academy/guess-melody`,
     timeout: 1000 * 5,
     withCredentials: true,
   });
@@ -22,8 +22,8 @@ export const createAPI = (onUnauthorized) => {
     if (response.status === Error.UNAUTHORIZED) {
       onUnauthorized();
 
-// Бросает ошибку при запросе неавторизованного пользователя, чтобы прервать цепочку промисов
-// Несмотря на повторение кода, каждый случай должен отрабатывать в своем блоке. Это задел на возможные доработки в будущем.
+      // Бросает ошибку при запросе неавторизованного пользователя, чтобы прервать цепочку промисов
+      // Несмотря на повторение кода, каждый случай должен отрабатывать в своем блоке. Это задел на возможные доработки в будущем.
       throw err;
     }
 

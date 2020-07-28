@@ -42,7 +42,7 @@ GameScreen.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  mistakes: getMistakes(state), 
+  mistakes: getMistakes(state),
 });
 
 export {GameScreen};

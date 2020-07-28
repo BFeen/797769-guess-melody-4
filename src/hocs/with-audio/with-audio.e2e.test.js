@@ -27,15 +27,13 @@ Player.propTypes = {
 };
 
 describe(`HOC with-audio e2e checking`, () => {
-  it(`Checks that HOC's callback turn on radio (play)`, () => {
+  it(`Checks that HOC's callback turn on audio (play)`, () => {
     const PlayerWrapped = withAudio(Player);
-    const wrapper = mount(
-        <PlayerWrapped
-          isPlaying={false}
-          onPlayButtonClick={() => {}}
-          src=""
-        />
-    );
+    const wrapper = mount(<PlayerWrapped
+      isPlaying={false}
+      onPlayButtonClick={() => {}}
+      src=""
+    />);
 
     window.HTMLMediaElement.prototype.play = () => {};
 
@@ -52,13 +50,11 @@ describe(`HOC with-audio e2e checking`, () => {
 
   it(`Checks that HOC's callback turn off audio (pause)`, () => {
     const PlayerWrapped = withAudio(Player);
-    const wrapper = mount(
-        <PlayerWrapped
-          isPlaying={true}
-          onPlayButtonClick={() => {}}
-          src=""
-        />
-    );
+    const wrapper = mount(<PlayerWrapped
+      isPlaying={true}
+      onPlayButtonClick={() => {}}
+      src=""
+    />);
 
     window.HTMLMediaElement.prototype.pause = () => {};
 

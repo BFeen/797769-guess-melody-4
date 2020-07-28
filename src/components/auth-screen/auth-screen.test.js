@@ -5,10 +5,10 @@ import AuthScreen from "./auth-screen.js";
 
 it(`AuthScreen rendering correctly`, () => {
   const tree = renderer.create(
-    <AuthScreen
-      onSubmit={() => {}}
-      onReplayButtonClick={() => {}}
-    />
+      <AuthScreen
+        onSubmit={() => {}}
+        onReplayButtonClick={() => {}}
+      />
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

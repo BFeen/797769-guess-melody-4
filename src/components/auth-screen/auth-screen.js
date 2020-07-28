@@ -1,6 +1,5 @@
 import React, {PureComponent, createRef} from "react";
 import PropTypes from "prop-types";
-import { AuthorizationStatus } from "../../reducer/user/user";
 
 
 class AuthScreen extends PureComponent {
@@ -34,19 +33,19 @@ class AuthScreen extends PureComponent {
         </div>
         <h2 className="login__title">Вы настоящий меломан!</h2>
         <p className="login__text">Хотите узнать свой результат? Представтесь!</p>
-        <form 
-          className="login__form" 
+        <form
+          className="login__form"
           action=""
           onSubmit={this._handleSubmit}
         >
           <p className="login__field">
-            <label className="login__label" for="name">Логин</label>
+            <label className="login__label" htmlFor="name">Логин</label>
             <input className="login__input" type="text" name="name" id="name"
               ref={this._loginRef}
             />
           </p>
           <p className="login__field">
-            <label className="login__label" for="password">Пароль</label>
+            <label className="login__label" htmlFor="password">Пароль</label>
             <input className="login__input" type="password" name="password" id="password"
               ref={this._passwordRef}
             />

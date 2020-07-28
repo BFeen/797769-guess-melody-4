@@ -47,6 +47,12 @@ exports[`Render App Render ArtistQuestionScreen 1`] = `
       <div
         className="wrong"
       />
+      <div
+        className="wrong"
+      />
+      <div
+        className="wrong"
+      />
     </div>
   </header>
   <section
@@ -187,7 +193,7 @@ exports[`Render App Render AuthScreen 1`] = `
     >
       <label
         className="login__label"
-        for="name"
+        htmlFor="name"
       >
         Логин
       </label>
@@ -203,7 +209,7 @@ exports[`Render App Render AuthScreen 1`] = `
     >
       <label
         className="login__label"
-        for="password"
+        htmlFor="password"
       >
         Пароль
       </label>
@@ -314,6 +320,12 @@ exports[`Render App Render GenreQuestionScreen 1`] = `
     <div
       className="game__mistakes"
     >
+      <div
+        className="wrong"
+      />
+      <div
+        className="wrong"
+      />
       <div
         className="wrong"
       />
@@ -482,10 +494,10 @@ exports[`Render App Render GenreQuestionScreen 1`] = `
 
 exports[`Render App Render WinScreen 1`] = `
 <section
-  className="welcome"
+  className="result"
 >
   <div
-    className="welcome__logo"
+    className="result__logo"
   >
     <img
       alt="Угадай мелодию"
@@ -494,43 +506,26 @@ exports[`Render App Render WinScreen 1`] = `
       width="186"
     />
   </div>
-  <button
-    className="welcome__button"
-    onClick={[Function]}
-  >
-    <span
-      className="visually-hidden"
-    >
-      Начать игру
-    </span>
-  </button>
   <h2
-    className="welcome__rules-title"
+    className="result__title"
   >
-    Правила игры
+    Вы настоящий меломан!
   </h2>
   <p
-    className="welcome__text"
+    className="result__total"
   >
-    Правила просты:
+    Правильных ответов: 
+    2
+    . Количество ошибок: 
+    0
   </p>
-  <ul
-    className="welcome__rules-list"
+  <button
+    className="replay"
+    onClick={[Function]}
+    type="button"
   >
-    <li>
-      Нужно ответить на все вопросы.
-    </li>
-    <li>
-      Можно допустить 
-      3
-       ошибки.
-    </li>
-  </ul>
-  <p
-    className="welcome__text"
-  >
-    Удачи!
-  </p>
+    Сыграть ещё раз
+  </button>
 </section>
 `;
 
