@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import {ActionCreator} from "../../reducer/game/game.js";
 import {AuthorizationStatus} from "../../reducer/user/user.js"
 import ArtistQuestionScreen from "../artist-question-screen/artist-question-screen.jsx";
+import AuthScreen from "../auth-screen/auth-screen.js";
 import GenreQuestionScreen from "../genre-question-screen/genre-question-screen.jsx";
 import GameOverScreen from "../game-over-screen/game-over-screen.jsx";
 import WinScreen from "../win-screen/win-screen.jsx";
@@ -41,6 +42,12 @@ class App extends PureComponent {
             <GenreQuestionScreenWrapped
               question={questions[0]}
               onAnswer={() => {}}
+            />
+          </Route>
+          <Route exact path="/dev-auth">
+            <AuthScreen
+              onSubmit={() => {}}
+              onReplayButtonClick={() => {}}
             />
           </Route>
         </Switch>
