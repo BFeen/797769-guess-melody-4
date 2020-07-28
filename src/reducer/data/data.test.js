@@ -1,5 +1,8 @@
-import {reducer, ActionType} from "./data.js";
+import {reducer, Operation, ActionType, ActionCreator} from "./data.js";
+import MockAdapter from "axios-mock-adapter";
+import {createAPI} from "../../api.js";
 
+const api = createAPI(() => {});
 
 const questions = [
   {
@@ -53,5 +56,26 @@ describe(`data reducer testing`, () => {
     })).toEqual({
       questions,
     });
+  });
+});
+
+describe(`Data Operation work correctly`, () => {
+  it(`Should make a correct API call to '/questions'`, () => {
+    const apiMock = new MockAdapter(api);
+    const dispatch = jest.fn();
+    const questionLoader = Operation.loadQuestions();
+
+    apiMock
+      .onGet(`/questions`)
+      .reply(200, [{fake: true}]);
+
+    return questionLoader(dispatch, () => {}, api)
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledTimes(1);
+        expect(dispatch).toHaveBeenNthCalledWith(1, {
+          type: ActionType.LOAD_QUESTIONS,
+          payload: [{fake: true}],
+        });
+      });
   });
 });
