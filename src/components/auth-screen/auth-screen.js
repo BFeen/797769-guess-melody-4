@@ -47,7 +47,7 @@ class AuthScreen extends PureComponent {
           </p>
           <p className="login__field">
             <label className="login__label" for="password">Пароль</label>
-            <input className="login__input" type="text" name="password" id="password"
+            <input className="login__input" type="password" name="password" id="password"
               ref={this._passwordRef}
             />
             <span className="login__error">Неверный пароль</span>
