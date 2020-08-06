@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import AuthScreen from "./auth-screen.js";
+import AuthScreen from "./auth-screen.jsx";
 
 
 it(`AuthScreen rendering correctly`, () => {

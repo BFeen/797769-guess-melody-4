@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 import {ActionCreator} from "../../reducer/game/game.js";
 import {AuthorizationStatus} from "../../const.js";
 import ArtistQuestionScreen from "../artist-question-screen/artist-question-screen.jsx";
-import AuthScreen from "../auth-screen/auth-screen.js";
+import AuthScreen from "../auth-screen/auth-screen.jsx";
 import GenreQuestionScreen from "../genre-question-screen/genre-question-screen.jsx";
 import GameOverScreen from "../game-over-screen/game-over-screen.jsx";
 import WinScreen from "../win-screen/win-screen.jsx";
