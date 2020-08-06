@@ -3,4 +3,9 @@ const GameType = {
   GENRE: `genre`,
 };
 
-export {GameType};
+const AuthorizationStatus = {
+  NO_AUTH: `NO_AUTH`,
+  AUTH: `AUTH`,
+};
+
+export {GameType, AuthorizationStatus};
