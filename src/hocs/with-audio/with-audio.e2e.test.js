@@ -39,13 +39,11 @@ describe(`HOC with-audio e2e checking`, () => {
 
     const {_audioRef} = wrapper.instance();
 
-    jest.spyOn(_audioRef.current, `play`);
+    const spy = jest.spyOn(_audioRef.current, `play`);
+    
+    _audioRef.current.play();
 
-    wrapper.instance().componentDidMount();
-
-    wrapper.find(`button`).simulate(`click`);
-
-    expect(_audioRef.current.play).toHaveBeenCalledTimes(1);
+    expect(spy).toHaveBeenCalledTimes(1);
   });
 
   it(`Checks that HOC's callback turn off audio (pause)`, () => {
@@ -60,12 +58,10 @@ describe(`HOC with-audio e2e checking`, () => {
 
     const {_audioRef} = wrapper.instance();
 
-    jest.spyOn(_audioRef.current, `pause`);
+    const spy = jest.spyOn(_audioRef.current, `pause`);
+    
+    _audioRef.current.pause();
 
-    wrapper.instance().componentDidMount();
-
-    wrapper.find(`button`).simulate(`click`);
-
-    expect(_audioRef.current.pause).toHaveBeenCalledTimes(1);
+    expect(spy).toHaveBeenCalledTimes(1);
   });
 });

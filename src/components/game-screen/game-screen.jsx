@@ -2,11 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
-import {GameType} from "../../const.js";
 import Mistakes from "../mistakes/mistakes.jsx";
+import {GameType, AppRoute} from "../../const.js";
 import {getMistakes} from "../../reducer/game/selectors.js";
 import {ActionCreator} from "../../reducer/game/game.js";
-import {AppRouter} from "../../const.js";
 
 
 const GameScreen = (props) => {
@@ -22,7 +21,7 @@ const GameScreen = (props) => {
       <header className="game__header">
         <Link
           className="game__back"
-          href="#"
+          to={AppRoute.ROOT}
           onClick={goToWelcome}
         >
           <span className="visually-hidden">Сыграть ещё раз</span>

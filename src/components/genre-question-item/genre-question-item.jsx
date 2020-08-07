@@ -10,7 +10,12 @@ class GenreQuestionItem extends PureComponent {
       <div className="track">
         {renderPlayer(answer.src, id)}
         <div className="game__answer">
-          <input className="game__input visually-hidden" type="checkbox" name="answer" value={`answer-${id}`}
+          <input
+            key={answer.src + id}
+            className="game__input visually-hidden"
+            type="checkbox"
+            name="answer"
+            value={`answer-${id}`}
             id={`answer-${id}`}
             checked={userAnswer}
             onChange={(evt) => {

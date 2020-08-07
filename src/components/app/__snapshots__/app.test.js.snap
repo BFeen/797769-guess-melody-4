@@ -9,7 +9,7 @@ exports[`Render App Render ArtistQuestionScreen 1`] = `
   >
     <a
       className="game__back"
-      href=""
+      href="/"
       onClick={[Function]}
     >
       <span
@@ -286,7 +286,7 @@ exports[`Render App Render GenreQuestionScreen 1`] = `
   >
     <a
       className="game__back"
-      href=""
+      href="/"
       onClick={[Function]}
     >
       <span

@@ -9,7 +9,7 @@ exports[`GameScreen snapshot test GameScreen rendering with game type Artist 1`]
   >
     <a
       className="game__back"
-      href=""
+      href="/"
       onClick={[Function]}
     >
       <span
@@ -71,7 +71,7 @@ exports[`GameScreen snapshot test with game type Genre 1`] = `
   >
     <a
       className="game__back"
-      href=""
+      href="/"
       onClick={[Function]}
     >
       <span

@@ -27,13 +27,13 @@ exports[`WinScreen snapshot testing WinScreen rendering correctly with 1 mistake
     . Количество ошибок: 
     1
   </p>
-  <button
+  <a
     className="replay"
+    href="/"
     onClick={[Function]}
-    type="button"
   >
     Сыграть ещё раз
-  </button>
+  </a>
 </section>
 `;
 
@@ -64,13 +64,13 @@ exports[`WinScreen snapshot testing WinScreen rendering correctly with 3 questio
     . Количество ошибок: 
     3
   </p>
-  <button
+  <a
     className="replay"
+    href="/"
     onClick={[Function]}
-    type="button"
   >
     Сыграть ещё раз
-  </button>
+  </a>
 </section>
 `;
 
@@ -101,13 +101,13 @@ exports[`WinScreen snapshot testing With 2 questions With 0 mistake 1`] = `
     . Количество ошибок: 
     0
   </p>
-  <button
+  <a
     className="replay"
+    href="/"
     onClick={[Function]}
-    type="button"
   >
     Сыграть ещё раз
-  </button>
+  </a>
 </section>
 `;
 
@@ -138,12 +138,12 @@ exports[`WinScreen snapshot testing With 2 questions With 1 mistake 1`] = `
     . Количество ошибок: 
     1
   </p>
-  <button
+  <a
     className="replay"
+    href="/"
     onClick={[Function]}
-    type="button"
   >
     Сыграть ещё раз
-  </button>
+  </a>
 </section>
 `;
