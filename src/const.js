@@ -8,4 +8,11 @@ const AuthorizationStatus = {
   AUTH: `AUTH`,
 };
 
-export {GameType, AuthorizationStatus};
+const AppRoute = {
+  LOGIN: `/login`,
+  LOSE: `/lose`,
+  RESULT: `/result`,
+  ROOT: `/`,
+};
+
+export {AppRoute, AuthorizationStatus, GameType};
