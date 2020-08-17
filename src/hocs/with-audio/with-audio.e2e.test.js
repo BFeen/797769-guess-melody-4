@@ -40,7 +40,7 @@ describe(`HOC with-audio e2e checking`, () => {
     const {_audioRef} = wrapper.instance();
 
     const spy = jest.spyOn(_audioRef.current, `play`);
-    
+
     _audioRef.current.play();
 
     expect(spy).toHaveBeenCalledTimes(1);
@@ -59,7 +59,7 @@ describe(`HOC with-audio e2e checking`, () => {
     const {_audioRef} = wrapper.instance();
 
     const spy = jest.spyOn(_audioRef.current, `pause`);
-    
+
     _audioRef.current.pause();
 
     expect(spy).toHaveBeenCalledTimes(1);

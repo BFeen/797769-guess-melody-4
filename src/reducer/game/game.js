@@ -74,7 +74,7 @@ const reducer = (state = initialState, action) => {
       return extend(initialState, {
         step: 0,
       });
-    case ActionType.GO_TO_WELCOME: 
+    case ActionType.GO_TO_WELCOME:
       return extend(initialState, {
         step: -1,
       });

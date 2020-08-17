@@ -13,6 +13,7 @@ describe(`GameScreen snapshot test`, () => {
     const tree = renderer.create(
         <Router history={history}>
           <GameScreen
+            goToWelcome={() => {}}
             type={GameType.ARTIST}
             mistakes={3}
           >
@@ -28,6 +29,7 @@ describe(`GameScreen snapshot test`, () => {
     const tree = renderer.create(
         <Router history={history}>
           <GameScreen
+            goToWelcome={() => {}}
             type={GameType.GENRE}
             mistakes={3}
           >
