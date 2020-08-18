@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
+import * as React from "react";
+// import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
-import {AppRoute} from "../../const.js";
+import {AppRoute} from "../../const";
 
 
 const GameOverScreen = (props) => {
@@ -25,8 +25,8 @@ const GameOverScreen = (props) => {
   );
 };
 
-GameOverScreen.propTypes = {
-  onReplayButtonClick: PropTypes.func.isRequired,
-};
+// GameOverScreen.propTypes = {
+//   onReplayButtonClick: PropTypes.func.isRequired,
+// };
 
 export default GameOverScreen;

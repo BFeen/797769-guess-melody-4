@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import * as React from "react";
+// import PropTypes from "prop-types";
 
 
 const WelcomeScreen = (props) => {
@@ -27,9 +27,9 @@ const WelcomeScreen = (props) => {
   );
 };
 
-WelcomeScreen.propTypes = {
-  errorsCount: PropTypes.number.isRequired,
-  onWelcomeButtonClick: PropTypes.func.isRequired,
-};
+// WelcomeScreen.propTypes = {
+//   errorsCount: PropTypes.number.isRequired,
+//   onWelcomeButtonClick: PropTypes.func.isRequired,
+// };
 
 export default WelcomeScreen;
