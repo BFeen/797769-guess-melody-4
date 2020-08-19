@@ -1,5 +1,4 @@
 import * as React from "react";
-// import PropTypes from "prop-types";
 import {Switch, Route, Router} from "react-router-dom";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../reducer/game/game";
@@ -14,18 +13,33 @@ import WelcomeScreen from "../welcome-screen/welcome-screen";
 import PrivateRoute from "../private-route/private-route";
 import withActivePlayer from "../../hocs/with-active-player/with-active-player";
 import withUserAnswer from "../../hocs/with-user-answer/with-user-answer";
-import {GameType, AppRoute} from "../../const";
+import {AppRoute} from "../../const";
 import {getStep, getMistakes, getMaxMistakes} from "../../reducer/game/selectors";
 import {getQuestions} from "../../reducer/data/selectors";
 import {getAuthorizationStatus} from "../../reducer/user/selectors";
 import {Operation as UserOperation} from "../../reducer/user/user";
 import history from "../../history";
+import {GameType, QuestionGenre, QuestionArtist} from "../../types";
 
+
+interface Props {
+  authorizationStatus: string;
+  maxMistakes: number;
+  mistakes: number;
+  questions: Question[];
+  step: number;
+  onUserAnswer: () => void;
+  onWelcomeButtonClick: () => void;
+  resetGame: () => void;
+  login: () => void;
+}
+
+type Question = QuestionArtist | QuestionGenre;
 
 const GenreQuestionScreenWrapped = withActivePlayer(withUserAnswer(GenreQuestionScreen));
 const ArtistQuestionScreenWrapped = withActivePlayer(ArtistQuestionScreen);
 
-class App extends React.PureComponent {
+class App extends React.PureComponent<Props, {}> {
   _renderGameScreen() {
     const {
       authorizationStatus,
@@ -134,18 +148,6 @@ class App extends React.PureComponent {
     );
   }
 }
-
-// App.propTypes = {
-//   authorizationStatus: PropTypes.string.isRequired,
-//   login: PropTypes.func.isRequired,
-//   maxMistakes: PropTypes.number.isRequired,
-//   mistakes: PropTypes.number.isRequired,
-//   questions: PropTypes.array.isRequired,
-//   onUserAnswer: PropTypes.func.isRequired,
-//   onWelcomeButtonClick: PropTypes.func.isRequired,
-//   resetGame: PropTypes.func.isRequired,
-//   step: PropTypes.number.isRequired,
-// };
 
 const mapStateToProps = (state) => ({
   authorizationStatus: getAuthorizationStatus(state),

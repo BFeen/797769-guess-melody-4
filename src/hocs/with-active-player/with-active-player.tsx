@@ -1,22 +1,43 @@
 import * as React from "react";
+import {Subtract} from "utility-types";
 import Player from "../../components/audio-player/audio-player";
 import withAudio from "../with-audio/with-audio";
 
 
+interface State {
+  activePlayerId: number;
+}
+
+interface InjectingProps {
+  renderPlayer: (src: string, id: number) => React.ReactNode;
+}
+
 const AudioPlayer = withAudio(Player);
 
 const withAudioPlayer = (Component) => {
-  class WithAudioPlayer extends React.PureComponent {
+  // Получаем props переданного компонента
+  type P = React.ComponentProps<typeof Component>;
+  /**
+   * Вычисляем props, которые нужно передать снаружы в обернутый компонент
+   * P - props компонента, InjectingProps - переданные хоком пропсы
+   * T - props, которые нужно передать в обернутый хоком компонент
+   * Условно: T = P - InjectingProps
+   * Например: P = {foo: string, bar: string}, InjectingProps = {bar: string}
+   * Тогда: T = {foo: string}
+   */
+  type T = Subtract<P, InjectingProps>;
+  
+  class WithAudioPlayer extends React.PureComponent<T, State> {
     constructor(props) {
       super(props);
 
       this.state = {
-        audioPlayerId: 0,
+        activePlayerId: 0,
       };
     }
 
     render() {
-      const {audioPlayerId} = this.state;
+      const {activePlayerId} = this.state;
 
       return (
         <Component
@@ -25,9 +46,9 @@ const withAudioPlayer = (Component) => {
             return (
               <AudioPlayer
                 src={src}
-                isPlaying={id === audioPlayerId}
+                isPlaying={id === activePlayerId}
                 onPlayButtonClick={() => this.setState({
-                  audioPlayerId: audioPlayerId === id ? -1 : id,
+                  activePlayerId: activePlayerId === id ? -1 : id,
                 })}
               />
             );
@@ -36,8 +57,6 @@ const withAudioPlayer = (Component) => {
       );
     }
   }
-
-  // WithAudioPlayer.propTypes = {};
 
   return WithAudioPlayer;
 };

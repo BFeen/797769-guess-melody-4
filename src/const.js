@@ -1,8 +1,3 @@
-const GameType = {
-  ARTIST: `artist`,
-  GENRE: `genre`,
-};
-
 const AuthorizationStatus = {
   NO_AUTH: `NO_AUTH`,
   AUTH: `AUTH`,
@@ -15,4 +10,4 @@ const AppRoute = {
   ROOT: `/`,
 };
 
-export {AppRoute, AuthorizationStatus, GameType};
+export {AppRoute, AuthorizationStatus};

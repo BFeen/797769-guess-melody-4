@@ -1,25 +1,32 @@
 import * as React from "react";
-// import PropTypes from "prop-types";
 
 
-class AuthScreen extends React.PureComponent {
+interface Props {
+  onSubmit: ({login, password}: {login: string; password: string}) => void;
+  onReplayButtonClick: () => void;
+};
+
+class AuthScreen extends React.PureComponent<Props, {}> {
+  private loginRef: React.RefObject<HTMLInputElement>;
+  private passwordRef: React.RefObject<HTMLInputElement>;
+
   constructor(props) {
     super(props);
 
-    this._loginRef = React.createRef();
-    this._passwordRef = React.createRef();
+    this.loginRef = React.createRef();
+    this.passwordRef = React.createRef();
 
-    this._handleSubmit = this._handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  _handleSubmit(evt) {
+  handleSubmit(evt) {
     const {onSubmit} = this.props;
 
     evt.preventDefault();
 
     onSubmit({
-      login: this._loginRef.current.value,
-      password: this._passwordRef.current.value,
+      login: this.loginRef.current.value,
+      password: this.passwordRef.current.value,
     });
   }
 
@@ -36,18 +43,18 @@ class AuthScreen extends React.PureComponent {
         <form
           className="login__form"
           action=""
-          onSubmit={this._handleSubmit}
+          onSubmit={this.handleSubmit}
         >
           <p className="login__field">
             <label className="login__label" htmlFor="name">Логин</label>
             <input className="login__input" type="text" name="name" id="name"
-              ref={this._loginRef}
+              ref={this.loginRef}
             />
           </p>
           <p className="login__field">
             <label className="login__label" htmlFor="password">Пароль</label>
             <input className="login__input" type="password" name="password" id="password"
-              ref={this._passwordRef}
+              ref={this.passwordRef}
             />
             <span className="login__error">Неверный пароль</span>
           </p>
@@ -60,10 +67,5 @@ class AuthScreen extends React.PureComponent {
     );
   }
 }
-
-AuthScreen.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-  onReplayButtonClick: PropTypes.func.isRequired,
-};
 
 export default AuthScreen;
