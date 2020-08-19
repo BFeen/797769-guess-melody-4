@@ -1,9 +1,10 @@
-import React from "react";
-import renderer from "react-test-renderer";
+import * as React from "react";
+import * as renderer from "react-test-renderer";
 import {Router} from "react-router-dom";
-import {GameScreen} from "./game-screen.jsx";
-import {GameType} from "../../const.js";
-import history from "../../history.js";
+import {GameScreen} from "./game-screen";
+import {GameType} from "../../const";
+import history from "../../history";
+import {noOp} from "../../utils";
 
 
 const children = <div className="children-component"></div>;
@@ -13,7 +14,7 @@ describe(`GameScreen snapshot test`, () => {
     const tree = renderer.create(
         <Router history={history}>
           <GameScreen
-            goToWelcome={() => {}}
+            goToWelcome={noOp}
             type={GameType.ARTIST}
             mistakes={3}
           >
@@ -29,7 +30,7 @@ describe(`GameScreen snapshot test`, () => {
     const tree = renderer.create(
         <Router history={history}>
           <GameScreen
-            goToWelcome={() => {}}
+            goToWelcome={noOp}
             type={GameType.GENRE}
             mistakes={3}
           >

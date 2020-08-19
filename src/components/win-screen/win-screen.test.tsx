@@ -1,8 +1,9 @@
-import React from "react";
-import renderer from "react-test-renderer";
+import * as React from "react";
+import * as renderer from "react-test-renderer";
 import {Router} from "react-router-dom";
-import WinScreen from "./win-screen.jsx";
-import history from "../../history.js";
+import WinScreen from "./win-screen";
+import history from "../../history";
+import {noOp} from "../../utils";
 
 
 describe(`WinScreen snapshot testing`, () => {
@@ -12,7 +13,7 @@ describe(`WinScreen snapshot testing`, () => {
           <WinScreen
             questionsCount={3}
             mistakesCount={3}
-            onReplayButtonClick={() => {}}
+            onReplayButtonClick={noOp}
           />
         </Router>
     ).toJSON();
@@ -26,7 +27,7 @@ describe(`WinScreen snapshot testing`, () => {
           <WinScreen
             questionsCount={3}
             mistakesCount={1}
-            onReplayButtonClick={() => {}}
+            onReplayButtonClick={noOp}
           />
         </Router>
     ).toJSON();
@@ -41,7 +42,7 @@ describe(`WinScreen snapshot testing`, () => {
             <WinScreen
               questionsCount={2}
               mistakesCount={0}
-              onReplayButtonClick={() => {}}
+              onReplayButtonClick={noOp}
             />
           </Router>
       ).toJSON();
@@ -55,7 +56,7 @@ describe(`WinScreen snapshot testing`, () => {
             <WinScreen
               questionsCount={2}
               mistakesCount={1}
-              onReplayButtonClick={() => {}}
+              onReplayButtonClick={noOp}
             />
           </Router>
       ).toJSON();

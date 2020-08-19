@@ -1,13 +1,18 @@
-import React from "react";
-import PropTypes from "prop-types";
+import * as React from "react";
 import {configure, mount} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-import withAudio from "./with-audio.js";
+import * as Adapter from "enzyme-adapter-react-16";
+import withAudio from "./with-audio";
+import {noOp} from "../../utils";
 
 
 configure({adapter: new Adapter()});
 
-const Player = (props) => {
+interface PlayerProps {
+  children: React.ReactNode;
+  onPlayButtonClick: () => void;
+}
+
+const Player = (props: PlayerProps) => {
   const {onPlayButtonClick, children} = props;
 
   return (
@@ -18,30 +23,22 @@ const Player = (props) => {
   );
 };
 
-Player.propTypes = {
-  onPlayButtonClick: PropTypes.func.isRequired,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]).isRequired,
-};
-
 describe(`HOC with-audio e2e checking`, () => {
   it(`Checks that HOC's callback turn on audio (play)`, () => {
     const PlayerWrapped = withAudio(Player);
     const wrapper = mount(<PlayerWrapped
       isPlaying={false}
-      onPlayButtonClick={() => {}}
+      onPlayButtonClick={noOp}
       src=""
     />);
 
-    window.HTMLMediaElement.prototype.play = () => {};
+    window.HTMLMediaElement.prototype.play = () => Promise.resolve();
 
-    const {_audioRef} = wrapper.instance();
+    const {audioRef} = wrapper.instance();
 
-    const spy = jest.spyOn(_audioRef.current, `play`);
+    const spy = jest.spyOn(audioRef.current, `play`);
 
-    _audioRef.current.play();
+    audioRef.current.play();
 
     expect(spy).toHaveBeenCalledTimes(1);
   });
@@ -50,17 +47,17 @@ describe(`HOC with-audio e2e checking`, () => {
     const PlayerWrapped = withAudio(Player);
     const wrapper = mount(<PlayerWrapped
       isPlaying={true}
-      onPlayButtonClick={() => {}}
+      onPlayButtonClick={noOp}
       src=""
     />);
 
-    window.HTMLMediaElement.prototype.pause = () => {};
+    window.HTMLMediaElement.prototype.pause = noOp;
 
-    const {_audioRef} = wrapper.instance();
+    const {audioRef} = wrapper.instance();
 
-    const spy = jest.spyOn(_audioRef.current, `pause`);
+    const spy = jest.spyOn(audioRef.current, `pause`);
 
-    _audioRef.current.pause();
+    audioRef.current.pause();
 
     expect(spy).toHaveBeenCalledTimes(1);
   });

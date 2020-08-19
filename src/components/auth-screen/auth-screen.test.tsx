@@ -1,13 +1,14 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import AuthScreen from "./auth-screen.jsx";
+import * as React from "react";
+import * as renderer from "react-test-renderer";
+import AuthScreen from "./auth-screen";
+import {noOp} from "../../utils";
 
 
 it(`AuthScreen rendering correctly`, () => {
   const tree = renderer.create(
       <AuthScreen
-        onSubmit={() => {}}
-        onReplayButtonClick={() => {}}
+        onSubmit={noOp}
+        onReplayButtonClick={noOp}
       />
   ).toJSON();
 

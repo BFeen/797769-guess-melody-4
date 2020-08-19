@@ -1,45 +1,44 @@
-import React from "react";
+import * as React from "react";
 import {configure, shallow, mount} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-import GenreQuestionScreen from "./genre-question-screen.jsx";
+import * as Adapter from "enzyme-adapter-react-16";
+import GenreQuestionScreen from "./genre-question-screen";
+import {GameType, QuestionGenre} from "../../types";
+import {noOp} from "../../utils";
 
 
 configure({
   adapter: new Adapter()
 });
 
-const mock = {
-  question: {
-    type: `genre`,
-    genre: `rock`,
-    answers: [
-      {
-        src: `path`,
-        genre: `rock`,
-      }, {
-        src: `path`,
-        genre: `jazz`,
-      }, {
-        src: `path`,
-        genre: `jazz`,
-      }, {
-        src: `path`,
-        genre: `blues`,
-      },
-    ],
-  },
+const question: QuestionGenre = {
+  type: GameType.GENRE,
+  genre: `rock`,
+  answers: [
+    {
+      src: `path`,
+      genre: `rock`,
+    }, {
+      src: `path`,
+      genre: `jazz`,
+    }, {
+      src: `path`,
+      genre: `jazz`,
+    }, {
+      src: `path`,
+      genre: `blues`,
+    },
+  ],
 };
 
 describe(`GenreQuestionScreen e2e test`, () => {
   it(`When user answers genre question form is not sent`, () => {
-    const {question} = mock;
     const onAnswer = jest.fn();
     const genreQuestion = shallow(<GenreQuestionScreen
       onAnswer={onAnswer}
       question={question}
-      renderPlayer={() => {}}
+      renderPlayer={() => null}
       userAnswers={[false, false, false, false]}
-      onChange={() => {}}
+      onChange={noOp}
     />);
 
     const form = genreQuestion.find(`form`);
@@ -53,15 +52,14 @@ describe(`GenreQuestionScreen e2e test`, () => {
   });
 
   it(`User answer passed to callback is consistent with "userAnswer" prop`, () => {
-    const {question} = mock;
     const onAnswer = jest.fn((...args) => [...args]);
     const userAnswer = [false, true, false, false];
 
     const genreQuestion = mount(<GenreQuestionScreen
       onAnswer={onAnswer}
       question={question}
-      renderPlayer={() => {}}
-      onChange={() => {}}
+      renderPlayer={() => null}
+      onChange={noOp}
       userAnswers={userAnswer}
     />);
 

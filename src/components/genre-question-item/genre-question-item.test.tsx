@@ -1,6 +1,7 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import GenreQuestionItem from "./genre-question-item.jsx";
+import * as React from "react";
+import * as renderer from "react-test-renderer";
+import GenreQuestionItem from "./genre-question-item";
+import {noOp} from "../../utils";
 
 
 const answerMock = {
@@ -13,8 +14,8 @@ it(`GenreQuestionItem snapshot testing`, () => {
       <GenreQuestionItem
         answer={answerMock}
         id={0}
-        onChange={() => {}}
-        renderPlayer={() => {}}
+        onChange={noOp}
+        renderPlayer={() => null}
         userAnswer={false}
       />
   ).toJSON();

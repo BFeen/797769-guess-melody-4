@@ -1,6 +1,6 @@
-import {reducer, ActionCreator, ActionType, Operation} from "./user.js";
-import {AuthorizationStatus} from "../../const.js";
-import {createAPI} from "../../api.js";
+import {reducer, ActionCreator, ActionType, Operation} from "./user";
+import {AuthorizationStatus} from "../../const";
+import {createAPI} from "../../api";
 import MockAdapter from "axios-mock-adapter";
 
 
