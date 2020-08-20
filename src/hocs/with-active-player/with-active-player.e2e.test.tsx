@@ -1,7 +1,7 @@
 import * as React from "react";
 import {configure, shallow} from "enzyme";
 import * as Adapter from "enzyme-adapter-react-16";
-import withActivePlayer from "./with-active-player.js";
+import withActivePlayer from "./with-active-player";
 
 
 configure({adapter: new Adapter()});
@@ -12,5 +12,5 @@ const MockComponentWrapped = withActivePlayer(MockComponent);
 it(`withActivePlayer HOC e2e testing`, () => {
   const wrapper = shallow(<MockComponentWrapped />);
 
-  expect(wrapper.state().audioPlayerId).toEqual(0);
+  expect(wrapper.state().activePlayerId).toEqual(0);
 });

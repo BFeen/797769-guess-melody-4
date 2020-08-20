@@ -72,8 +72,11 @@ describe(`Render App`, ()=> {
               resetGame={noOp}
               step={-1}
             />
-          </Provider>)
-      .toJSON();
+          </Provider>, {
+            createNodeMock: () => {
+              return {};
+            }
+      }).toJSON();
 
     expect(tree).toMatchSnapshot();
   });
@@ -103,8 +106,8 @@ describe(`Render App`, ()=> {
             createNodeMock: () => {
               return {};
             }
-          })
-      .toJSON();
+          }
+      ).toJSON();
 
     expect(tree).toMatchSnapshot();
   });
@@ -134,8 +137,8 @@ describe(`Render App`, ()=> {
             createNodeMock: () => {
               return {};
             }
-          })
-      .toJSON();
+          }
+      ).toJSON();
 
     expect(tree).toMatchSnapshot();
   });
