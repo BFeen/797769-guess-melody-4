@@ -26,9 +26,15 @@ const Player = (props: PlayerProps) => {
 describe(`HOC with-audio e2e checking`, () => {
   it(`Checks that HOC's callback turn on audio (play)`, () => {
     const PlayerWrapped = withAudio(Player);
+    let isPlaying = false;
+    const onPlayButtonClick = jest.fn(() => {
+      isPlaying = !isPlaying;
+      wrapper.setProps({isPlaying});
+    });
+
     const wrapper = mount(<PlayerWrapped
-      isPlaying={false}
-      onPlayButtonClick={noOp}
+      isPlaying={isPlaying}
+      onPlayButtonClick={onPlayButtonClick}
       src=""
     />);
 
@@ -36,29 +42,39 @@ describe(`HOC with-audio e2e checking`, () => {
 
     const {audioRef} = wrapper.instance();
 
-    const spy = jest.spyOn(audioRef.current, `play`);
+    jest.spyOn(audioRef.current, `play`);
 
-    audioRef.current.play();
+    wrapper.instance().componentDidMount();
 
-    expect(spy).toHaveBeenCalledTimes(1);
+    wrapper.find(`button`).simulate(`click`);
+
+    expect(audioRef.current.play).toHaveBeenCalledTimes(1);
+    expect(onPlayButtonClick).toHaveBeenCalledTimes(1);
+    expect(wrapper.props().isPlaying).toEqual(true);
   });
 
   it(`Checks that HOC's callback turn off audio (pause)`, () => {
     const PlayerWrapped = withAudio(Player);
+    let isPlaying = true;
+    const onPlayButtonClick = jest.fn(() => {
+      isPlaying = !isPlaying;
+      wrapper.setProps({isPlaying});
+    });
+
     const wrapper = mount(<PlayerWrapped
-      isPlaying={true}
-      onPlayButtonClick={noOp}
+      isPlaying={isPlaying}
+      onPlayButtonClick={onPlayButtonClick}
       src=""
     />);
 
     window.HTMLMediaElement.prototype.pause = noOp;
-
     const {audioRef} = wrapper.instance();
+    jest.spyOn(audioRef.current, `pause`);
+    wrapper.instance().componentDidMount();
+    wrapper.find(`button`).simulate(`click`);
 
-    const spy = jest.spyOn(audioRef.current, `pause`);
-
-    audioRef.current.pause();
-
-    expect(spy).toHaveBeenCalledTimes(1);
+    expect(audioRef.current.pause).toHaveBeenCalledTimes(1);
+    expect(onPlayButtonClick).toHaveBeenCalledTimes(1);
+    expect(wrapper.props().isPlaying).toEqual(false);
   });
 });
