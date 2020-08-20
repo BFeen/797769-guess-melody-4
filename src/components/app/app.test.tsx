@@ -76,7 +76,7 @@ describe(`Render App`, ()=> {
             createNodeMock: () => {
               return {};
             }
-      }).toJSON();
+          }).toJSON();
 
     expect(tree).toMatchSnapshot();
   });

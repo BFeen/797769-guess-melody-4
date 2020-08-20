@@ -6,7 +6,7 @@ interface Props {
   question: QuestionArtist;
   onAnswer: (question: QuestionArtist, answer: AnswerArtist) => void;
   renderPlayer: (string, number) => React.ReactNode;
-};
+}
 
 const ArtistQuestionScreen: React.FunctionComponent<Props> = (props: Props) => {
   const {onAnswer, question, renderPlayer} = props;

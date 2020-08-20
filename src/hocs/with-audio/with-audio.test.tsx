@@ -4,11 +4,11 @@ import withAudio from "./with-audio";
 import {noOp} from "../../utils";
 
 
-interface mockProps {
+interface MockProps {
   children: React.ReactNode;
 }
 
-const MockComponent = (props: mockProps) => {
+const MockComponent = (props: MockProps) => {
   const {children} = props;
 
   return (

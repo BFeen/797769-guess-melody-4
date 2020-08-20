@@ -9,7 +9,7 @@ interface Props {
   onAnswer: () => void;
   onChange: () => void;
   renderPlayer: (src: string, id: number) => void;
-};
+}
 
 class GenreQuestionScreen extends React.PureComponent<Props, {}> {
   render() {

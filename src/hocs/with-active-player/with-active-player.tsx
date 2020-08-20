@@ -18,7 +18,7 @@ const withAudioPlayer = (Component) => {
   // Получаем props переданного компонента
   type P = React.ComponentProps<typeof Component>;
   /**
-   * Вычисляем props, которые нужно передать снаружы в обернутый компонент
+   * Вычисляем props, которые нужно передать снаружи в обернутый компонент
    * P - props компонента, InjectingProps - переданные хоком пропсы
    * T - props, которые нужно передать в обернутый хоком компонент
    * Условно: T = P - InjectingProps
@@ -26,7 +26,7 @@ const withAudioPlayer = (Component) => {
    * Тогда: T = {foo: string}
    */
   type T = Subtract<P, InjectingProps>;
-  
+
   class WithAudioPlayer extends React.PureComponent<T, State> {
     constructor(props) {
       super(props);

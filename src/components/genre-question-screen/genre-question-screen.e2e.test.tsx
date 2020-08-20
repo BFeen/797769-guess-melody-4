@@ -67,7 +67,7 @@ describe(`GenreQuestionScreen e2e test`, () => {
     const inputTwo = genreQuestion.find(`input`).at(1);
 
     inputTwo.simulate(`change`, {target: {checked: true}});
-    form.simulate(`submit`, {preventDefault() {}});
+    form.simulate(`submit`, {preventDefault: noOp});
 
     expect(onAnswer).toHaveBeenCalledTimes(1);
 
